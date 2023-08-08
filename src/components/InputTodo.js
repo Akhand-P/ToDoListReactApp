@@ -11,6 +11,9 @@ export default function InputTodo() {
   const [desc,setDesc] = useState("");
   const [addUpdate,setAddUpdate] = useState(1);
   const AddTask = ()=>{
+    if(todo?.title === undefined) {alert('Enter Todo Title'); return -1;}
+    else if(todo?.desc === undefined) {alert('Enter Description') ;return -1;}
+    else if(todo?.DueDate===  undefined) {alert('Enter DueDate') ;return -1;}
     const temp = data
     temp.push(todo);
     setData(temp);
@@ -96,7 +99,7 @@ export default function InputTodo() {
             
 
         </div>
-        <h1 className='text-center my-3' style={{backgroundColor:"black",color: "white",borderRadius:"10px"}}> Your ToDos</h1>
+        <h1 className='text-center my-3' style={{backgroundColor:"black",margin: "0px -12px", color: "white",borderRadius:"10px"}}> Your ToDos</h1>
         <TodoList list={data} updateTodo={updateTodo} deleteTodo={deleteTodo}/>
         
 
